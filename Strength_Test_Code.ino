@@ -65,7 +65,7 @@ void motorJog(int unitCycle){
   //Checks value of unit cycle. Moves motor in direction that is called and by distance unitCycle specifies
   //200 steps to complete one revolution, 1 revolution is 2mm travel
 
-  if(unitCycle = 0){ //5mm Travel
+  if(unitCycle == 0){ //5mm Travel
   //the jog will only occur as long as a magnet is being read and the limit switches aren't on
     while((magnet_on == LOW) && (limit1 && limit2 != LOW)){
       for(int i = 0; i < 500; i++){
@@ -77,7 +77,7 @@ void motorJog(int unitCycle){
       }
     }
   }
-  else if(unitCycle = 1){ //20mm Travel
+  else if(unitCycle == 1){ //20mm Travel
     while((magnet_on == LOW) && (limit1 && limit2 != LOW)){
       for(int i = 0; i < 4000; i++){
         digitalWrite(driverDIR, setdir);
@@ -192,7 +192,7 @@ void loop(){
           }
         }
         else{
-          if(arrayLocation = 0){
+          if(arrayLocation == 0){
             arrayLocation = 3;
           }
           else{
@@ -202,13 +202,13 @@ void loop(){
       }
 
       //reads value of arrayLocation and prints out the respective menu
-      if(arrayLocation = 0){
+      if(arrayLocation == 0){
         lcd.print("SELECT MENU");
       }
-      else if(arrayLocation = 1){
+      else if(arrayLocation == 1){
         lcd.print("START TEST");
       }
-      else if(arrayLocation = 2){
+      else if(arrayLocation == 2){
         lcd.print("JOG MOTOR");
       }
       else{
@@ -254,11 +254,11 @@ void loop(){
         unitCycle++;
       }
       //Checks value of unit cycle then prints out travel of motor
-      if(unitCycle = 1){
+      if(unitCycle == 1){
         lcd.clear();
         lcd.println("20MM TRAVEL");
       }
-      else if(unitCycle = 2){
+      else if(unitCycle == 2){
         lcd.clear();
         lcd.println("50MM TRAVEL");
       }
